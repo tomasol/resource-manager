@@ -11,6 +11,7 @@ require (
 	github.com/AlekSi/pointer v1.1.0 // indirect
 	github.com/NYTimes/gziphandler v1.1.1
 	github.com/alecthomas/kong v0.2.11
+	github.com/bytecodealliance/wasmtime-go v0.21.0
 	github.com/facebook/ent v0.4.4-0.20201019115128-98aeb19013f1
 	// IMPORTANT!! if ent-contrib version is updated, also update generate.go in ent/
 	github.com/facebookincubator/ent-contrib v0.0.0-20201018112627-5709d2185a62
@@ -34,12 +35,14 @@ require (
 	github.com/shopspring/decimal v1.2.0 // indirect
 	github.com/sirupsen/logrus v1.6.0
 	github.com/stretchr/testify v1.6.1
+	github.com/tomasol/go-ext-wasm v0.3.2 // indirect
 	github.com/ugorji/go/codec v1.1.7 // indirect
 	github.com/urfave/cli/v2 v2.2.0 // indirect
 	github.com/vektah/dataloaden v0.3.0 // indirect
 	github.com/vektah/gqlparser v1.3.1 // indirect
 	github.com/vektah/gqlparser/v2 v2.1.0
 	github.com/vmihailenco/msgpack/v5 v5.0.0-beta.1
+	github.com/wasmerio/go-ext-wasm v0.3.1
 	go.opencensus.io v0.22.5
 	go.uber.org/zap v1.16.0
 	gocloud.dev v0.20.1-0.20200914152856-6be5a462804a

@@ -45,6 +45,33 @@ function invoke() {
 	checkResult(t, now, actual, logString)
 }
 
+func BenchmarkQuickJS(b *testing.B) {
+	wasmer, err := NewWasmerUsingEnvVars()
+	if err != nil {
+		b.Fatalf("Unable create wasmer - %s", err)
+	}
+	for n := 0; n < b.N; n++ {
+
+		script := `
+function invoke() {
+	log(JSON.stringify({respool: resourcePool.ResourcePoolName, currentRes: currentResources}));
+	return {vlan: userInput.desiredVlan};
+}
+	`
+		userInput := make(map[string]interface{})
+		userInput["desiredVlan"] = 1
+		var resourcePool model.ResourcePoolInput
+		resourcePool.ResourcePoolName = "testpool"
+		now := time.Now()
+		currentResources := createCurrentResources(now)
+
+		_, _, err = wasmer.invokeJs(script, userInput, resourcePool, currentResources, nil, "invoke()")
+		if err != nil {
+			b.Fatalf("Unable run - %s", err)
+		}
+	}
+}
+
 func TestWasmerInvokePyIntegration(t *testing.T) {
 	if testing.Short() {
 		t.Skip("skipping integration test")
